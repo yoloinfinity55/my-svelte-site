@@ -1,0 +1,11 @@
+<div class="mb-8">
+  <h1 class="text-4xl font-bold mb-4">My Second Blog Post</h1>
+</div>
+
+<div class="prose prose-lg max-w-none">
+  <p>This is the content of my second post. You can write anything here!</p>
+</div>
+
+<div class="mt-8">
+  <a href="/" class="text-blue-600 hover:text-blue-800">← Back to homepage</a>
+</div>

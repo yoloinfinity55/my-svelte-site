@@ -1,0 +1,177 @@
+<script lang="ts">
+  import BlogCard from '$lib/components/BlogCard.svelte';
+
+  const relatedPosts = [
+    {
+      title: 'My First Blog Post',
+      url: '/blog/my-first-post',
+      excerpt: 'This is the content of my first post. Welcome to my blog!'
+    },
+    {
+      title: 'My Second Blog Post',
+      url: '/blog/my-second-post',
+      excerpt: 'More exciting content coming soon!'
+    }
+  ];
+</script>
+
+<svelte:head>
+  <title>SvelteKit Static Site Generator Tutorial - My SvelteKit Blog</title>
+  <meta name="description" content="A comprehensive, step-by-step tutorial for beginners learning SvelteKit as a static site generator. Learn components, routing, styling, and deployment." />
+</svelte:head>
+
+<article class="prose prose-lg max-w-none">
+  <header class="mb-8">
+    <h1 class="text-4xl font-bold mb-4">SvelteKit Static Site Generator Tutorial</h1>
+    <div class="text-gray-600 mb-6">
+      <time datetime="2024-11-05">November 5, 2024</time>
+      <span class="mx-2">•</span>
+      <span>15 min read</span>
+      <span class="mx-2">•</span>
+      <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm">Tutorial</span>
+    </div>
+  </header>
+
+  <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8">
+    <div class="flex">
+      <div class="ml-3">
+        <p class="text-sm text-blue-700">
+          <strong>Welcome! 🎉</strong> This tutorial will guide you through building a static site with SvelteKit, based on my own learning journey. We'll start from the basics and build up to more advanced features.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <h2>What You'll Learn</h2>
+  <ul>
+    <li>SvelteKit fundamentals and file-based routing</li>
+    <li>Component creation and composition</li>
+    <li>Styling with Tailwind CSS</li>
+    <li>Static site generation and deployment</li>
+    <li>Adding interactivity and dynamic features</li>
+  </ul>
+
+  <h2>Step 1: Understanding Your Project Structure</h2>
+  <p>Let's start by examining what a typical SvelteKit project looks like:</p>
+
+  <pre class="bg-gray-100 p-4 rounded-lg overflow-x-auto"><code>my-svelte-site/
+├── src/
+│   ├── app.css          # Global styles (Tailwind CSS)
+│   ├── app.html         # Base HTML template
+│   ├── lib/             # Reusable components and utilities
+│   │   └── assets/      # Static assets (favicon, images)
+│   └── routes/          # Pages and layouts (file-based routing)
+│       ├── +layout.svelte    # Root layout
+│       ├── +page.svelte      # Homepage
+│       └── blog/             # Blog section
+│           ├── my-first-post/
+│           │   └── +page.svelte
+│           └── my-second-post/
+│               └── +page.svelte
+├── static/              # Static files served at root
+├── package.json         # Dependencies and scripts
+└── svelte.config.ts     # SvelteKit configuration</code></pre>
+
+  <h3>Key Files Explained</h3>
+  <p><strong>Routes (<code>src/routes/</code>):</strong></p>
+  <ul>
+    <li><code>+page.svelte</code> = page component</li>
+    <li><code>+layout.svelte</code> = layout wrapper for child routes</li>
+    <li>File-based routing: <code>/blog/my-first-post/+page.svelte</code> → <code>/blog/my-first-post</code></li>
+  </ul>
+
+  <h2>Step 2: Running Your Development Server</h2>
+  <p>Let's get your site running locally:</p>
+
+  <pre class="bg-gray-900 text-green-400 p-4 rounded-lg"><code>npm run dev</code></pre>
+
+  <p>This starts the development server. Open <code>http://localhost:5173</code> in your browser.</p>
+
+  <p><strong>What happens:</strong></p>
+  <ul>
+    <li>SvelteKit compiles your Svelte components</li>
+    <li>Hot reloading enables instant updates</li>
+    <li>Routes are automatically generated from your file structure</li>
+  </ul>
+
+  <h2>Step 3: Understanding Svelte Components</h2>
+  <p>Svelte components combine JavaScript logic with HTML templates. Each component has:</p>
+  <ul>
+    <li><strong>Script block</strong>: JavaScript/TypeScript logic with <code>$props()</code> and <code>$state()</code></li>
+    <li><strong>Template</strong>: HTML with Svelte directives like <code>{'{#each}'}</code>, <code>{'{#if}'}</code></li>
+    <li><strong>Style block</strong>: Component-scoped CSS (optional)</li>
+  </ul>
+
+  <h2>Step 4: Creating Your First Component</h2>
+  <p>Components are the building blocks of Svelte applications. You can create reusable UI pieces that accept props and emit events. Your existing <code>BlogCard</code> component is a great example!</p>
+
+  <h2>Step 5: Adding Global Styles and Layout</h2>
+  <p>The root layout (<code>+layout.svelte</code>) provides consistent structure across all pages. It includes navigation, headers, footers, and global styles. Your current layout already has a nice navigation structure!</p>
+
+  <h2>Step 6: Adding Interactivity</h2>
+  <p>Svelte makes it easy to add interactivity with reactive statements and event handlers. You can create components that respond to user input, manage local state, and persist data in localStorage.</p>
+
+  <h2>Step 7: Building and Deploying</h2>
+  <p>Build for production:</p>
+
+  <pre class="bg-gray-900 text-green-400 p-4 rounded-lg"><code>npm run build</code></pre>
+
+  <p>Preview locally:</p>
+
+  <pre class="bg-gray-900 text-green-400 p-4 rounded-lg"><code>npm run preview</code></pre>
+
+  <p>Deploy to GitHub Pages:</p>
+
+  <pre class="bg-gray-900 text-green-400 p-4 rounded-lg"><code>npm run deploy</code></pre>
+
+  <h2>Key Concepts Summary</h2>
+
+  <h3>SvelteKit Features Used:</h3>
+  <ul>
+    <li><strong>File-based routing</strong>: URLs determined by file structure</li>
+    <li><strong>Layouts</strong>: Shared UI with <code>+layout.svelte</code></li>
+    <li><strong>Static generation</strong>: <code>@sveltejs/adapter-static</code></li>
+    <li><strong>Components</strong>: Reusable UI pieces</li>
+    <li><strong>Reactivity</strong>: Automatic UI updates with <code>$state</code></li>
+    <li><strong>Props</strong>: Component communication with <code>$props</code></li>
+  </ul>
+
+  <h3>Svelte Syntax:</h3>
+  <ul>
+    <li><code>{'{variable}'}</code>: Interpolation</li>
+    <li><code>{'{#each}'}</code>: Loops</li>
+    <li><code>{'{#if}'}</code>: Conditionals</li>
+    <li><code>bind:value</code>: Two-way data binding</li>
+    <li><code>on:event</code>: Event handlers</li>
+  </ul>
+
+  <h3>Tailwind CSS:</h3>
+  <ul>
+    <li>Utility-first CSS framework</li>
+    <li>Responsive design with prefixes (<code>sm:</code>, <code>md:</code>, <code>lg:</code>)</li>
+    <li>Dark mode support with <code>dark:</code> prefix</li>
+  </ul>
+
+  <div class="bg-green-50 border-l-4 border-green-400 p-4 my-8">
+    <div class="flex">
+      <div class="ml-3">
+        <p class="text-sm text-green-700">
+          <strong>Next Steps:</strong> Try modifying the existing components, add new pages, and experiment with different features. The beauty of SvelteKit is how approachable it is for beginners while being powerful enough for complex applications.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-8">
+
+  <div class="mt-8">
+    <h3 class="text-xl font-bold mb-4">Related Posts</h3>
+    {#each relatedPosts as post}
+      <BlogCard title={post.title} url={post.url} excerpt={post.excerpt} />
+    {/each}
+  </div>
+</article>
+
+<div class="mt-8">
+  <a href="/blog" class="text-blue-600 hover:text-blue-800">← Back to all posts</a>
+</div>
