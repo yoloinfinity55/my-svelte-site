@@ -149,7 +149,7 @@ Ensure you have the following installed:
 
    Your content here...
 
-   <a href="/">← Back to homepage</a>
+   <a href="../../">← Back to homepage</a>
    ```
 
 #### Method 2: Manual Creation
@@ -222,7 +222,7 @@ function hello() {
 1. **Use descriptive titles**: Make them SEO-friendly and engaging
 2. **Write compelling excerpts**: Should entice readers to click
 3. **Estimate read time accurately**: Base on 200-250 words per minute
-4. **Include back link**: Always add `<a href="/">← Back to homepage</a>`
+4. **Include back link**: Always add `<a href="../../">← Back to homepage</a>`
 5. **Use semantic HTML**: Proper heading hierarchy
 6. **Optimize images**: Use appropriate sizes and alt text
 7. **Internal linking**: Link to other posts when relevant
@@ -608,4 +608,4 @@ npm run deploy          # Deploy to GitHub Pages
 
 This SOP should be updated whenever significant changes are made to the workflow or technology stack. Last updated: November 5, 2024.
 
-<a href="/">← Back to homepage</a>
+<a href="../../">← Back to homepage</a>

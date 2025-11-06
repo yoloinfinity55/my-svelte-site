@@ -9,4 +9,4 @@ readTime: 2 min read
 
 This is the content of my second post. You can write anything here!
 
-<a href="/">← Back to homepage</a>
+<a href="../../">← Back to homepage</a>

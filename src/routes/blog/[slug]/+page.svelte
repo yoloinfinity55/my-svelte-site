@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { base } from '$app/paths';
+
   interface PostData {
     content: any;
     meta: {
@@ -8,9 +10,9 @@
       readTime: string;
     };
   }
-  
+
   let { data }: { data: PostData } = $props();
-  
+
   // In Svelte 5 runes mode, assign the component directly
   const Content = data.content;
 </script>
@@ -41,5 +43,5 @@
 </div>
 
 <div class="mt-8">
-  <a href="/blog" class="text-blue-600 hover:text-blue-800">← Back to all posts</a>
+  <a href="{base}/blog" class="text-blue-600 hover:text-blue-800">← Back to all posts</a>
 </div>

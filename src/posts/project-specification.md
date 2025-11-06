@@ -180,7 +180,7 @@ readTime: "5 min read"
 
 Content in Markdown format...
 
-<a href="/">← Back to homepage</a>
+<a href="../../">← Back to homepage</a>
 ```
 
 #### Automated Post Creation
@@ -399,4 +399,4 @@ The architecture prioritizes:
 
 The project serves as both a functional blog platform and a reference implementation for SvelteKit best practices, demonstrating how modern web technologies can be combined to create efficient, maintainable web applications.
 
-<a href="/">← Back to homepage</a>
+<a href="../../">← Back to homepage</a>

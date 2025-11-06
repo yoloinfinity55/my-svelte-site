@@ -101,5 +101,5 @@ readTime: 15 min read
 </article>
 
 <div class="mt-8">
-  <a href="/blog" class="text-blue-600 hover:text-blue-800">← Back to all posts</a>
+  <a href="../" class="text-blue-600 hover:text-blue-800">← Back to all posts</a>
 </div>

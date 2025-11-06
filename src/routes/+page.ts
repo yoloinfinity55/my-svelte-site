@@ -1,4 +1,5 @@
 import type { PageLoad } from './$types';
+import { base } from '$app/paths';
 
 interface Post {
   title: string;
@@ -16,7 +17,7 @@ export const load: PageLoad = async () => {
     const slug = path.split('/').pop()?.replace('.md', '') || '';
     return {
       title: module.metadata.title,
-      url: `/blog/${slug}`,
+      url: `${base}/blog/${slug}`,
       excerpt: module.metadata.excerpt,
       date: module.metadata.date,
       readTime: module.metadata.readTime

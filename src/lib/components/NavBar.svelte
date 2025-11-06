@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { base } from '$app/paths';
+
   let isMenuOpen = $state(false);
 
   function toggleMenu() {
@@ -15,7 +17,7 @@
     <div class="flex justify-between items-center h-16">
       <!-- Logo/Brand -->
       <div class="flex-shrink-0">
-        <a href="/" class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+        <a href="{base}/" class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
             MySvelteSite
         </a>
       </div>
@@ -24,13 +26,13 @@
       <div class="hidden md:block">
         <div class="ml-10 flex items-baseline space-x-8">
           <a
-            href="/"
+            href="{base}/"
             class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
             Home
           </a>
           <a
-            href="/blog"
+            href="{base}/blog"
             class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
             Blog
@@ -69,14 +71,14 @@
     <div class="md:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200 shadow-lg">
         <a
-          href="/"
+          href="{base}/"
           onclick={closeMenu}
           class="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
         >
           Home
         </a>
         <a
-          href="/blog"
+          href="{base}/blog"
           onclick={closeMenu}
           class="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
         >

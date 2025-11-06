@@ -26,4 +26,4 @@ console.log('Hello, world!');
 
 Happy blogging! 🎉
 
-<a href="/">← Back to homepage</a>
+<a href="../../">← Back to homepage</a>

@@ -3,6 +3,8 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 import type { Config } from '@sveltejs/kit';
 
+const dev = process.env.NODE_ENV === 'development';
+
 const config: Config = {
   extensions: ['.svelte', '.md'],
   
@@ -15,22 +17,31 @@ const config: Config = {
   
   kit: {
     adapter: adapter({
-      fallback: 'index.html'
+      pages: 'build',
+      assets: 'build',
+      fallback: undefined,
+      precompress: false,
+      strict: true
     }),
+    paths: {
+      base: dev ? '' : '/my-svelte-site'  // Replace with your repo name
+    },
     prerender: {
       handleHttpError: ({ path, referrer, message }) => {
-        // Ignore 404s for dynamic routes during prerendering
         if (path.includes('/blog/') && message.includes('404')) {
+          return;
+        }
+        // Allow links that don't begin with base during prerendering
+        if (message.includes('does not begin with `base`')) {
           return;
         }
         throw new Error(message);
       },
       handleMissingId: ({ id, path }) => {
-        // Ignore missing anchor links in blog posts
         if (path.includes('/blog/')) {
           return;
         }
-        throw new Error(`Missing id "${id}" in ${path}`); // Fixed: was using template literal with 'throw new Error`...'
+        throw new Error(`Missing id "${id}" in ${path}`);
       }
     }
   }

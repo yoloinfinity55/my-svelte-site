@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { base } from '$app/paths';
+
   interface Post {
     title: string;
     url: string;
@@ -45,7 +47,7 @@
     </div>
     
     <div class="mt-8 text-center">
-      <a href="/blog" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+      <a href="{base}/blog" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
         View all posts →
       </a>
     </div>

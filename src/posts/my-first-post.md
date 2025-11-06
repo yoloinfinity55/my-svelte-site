@@ -9,4 +9,4 @@ readTime: 3 min read
 
 This is the content of my first post. Welcome to my blog!
 
-<a href="/">← Back to homepage</a>
+<a href="../../">← Back to homepage</a>
