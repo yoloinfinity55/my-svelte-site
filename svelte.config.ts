@@ -1,6 +1,7 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
+import rehypeHighlight from 'rehype-highlight';
 import type { Config } from '@sveltejs/kit';
 
 const dev = process.env.NODE_ENV === 'development';
@@ -11,7 +12,8 @@ const config: Config = {
   preprocess: [
     vitePreprocess(),
     mdsvex({
-      extensions: ['.md']
+      extensions: ['.md'],
+      rehypePlugins: [rehypeHighlight]
     })
   ],
   
